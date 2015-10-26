@@ -226,12 +226,14 @@
   rr:predicateObjectMap [
     rr:predicate bafu:measurement;
     rr:objectMap [
-      rml:reference "value"    ] ;
-      rr:datatype xsd:float 
+      rml:reference "value" ;
+      rr:datatype xsd:float  
+    ]
   ] ;
 
   rr:predicateObjectMap [
     rr:predicate rdfs:comment;
     rr:objectMap [
-      rml:reference "value_remark"    ]
+      rml:reference "value_remark"
+    ]
   ] .

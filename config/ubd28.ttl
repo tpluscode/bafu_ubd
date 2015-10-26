@@ -113,21 +113,24 @@
     rr:predicateObjectMap [
     rr:predicate bafu:lv03_y;
     rr:objectMap [
-      rml:reference "station_y"
+      rml:reference "station_y" ;
+      rr:datatype xsd:float 
     ]
   ] ;
 
     rr:predicateObjectMap [
     rr:predicate bafu:lv03_x;
     rr:objectMap [
-      rml:reference "station_x"
+      rml:reference "station_x" ;
+      rr:datatype xsd:float 
     ]
   ] ;
 
     rr:predicateObjectMap [
     rr:predicate bafu:altitude;
     rr:objectMap [
-      rml:reference "station_altitude"
+      rml:reference "station_altitude" ;
+      rr:datatype xsd:double ;
     ]
   ] ;
 
@@ -214,14 +217,14 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate bafu:unit ;
+    rr:predicate bafu:year ;
     rr:objectMap [
       rr:template "http://environment.data.admin.ch/ubd/28/year/{year}"
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate rdfs:comment;
+    rr:predicate bafu:measurement;
     rr:objectMap [
       rml:reference "value"    ] ;
       rr:datatype xsd:float 

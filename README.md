@@ -1,4 +1,4 @@
-# Swiss Environmental Data (BAFU Umwelt Basisdaten)
+# Swiss Environmental Data (BAFU Umwelt Basisdaten) [![Build Status](https://travis-ci.org/zazuko/bafu_ubd.svg)](https://travis-ci.org/zazuko/bafu_ubd)
 
 This repoistory contains some sample datasets from Swiss [Federal Office for the Environment](http://www.bafu.admin.ch) FOEN which are transformed to RDF and made available at the LINDAS-Platform SPARQL endpoint.
 

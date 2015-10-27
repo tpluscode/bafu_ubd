@@ -1,0 +1,5 @@
+language: bash
+
+    script:
+        - bash scripts/utf8.sh
+        - bash scripts/ubd28.sh

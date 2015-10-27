@@ -7,3 +7,12 @@ This repoistory contains some sample datasets from Swiss [Federal Office for the
 * `/config`: the configuration of the transformers
 * `/scripts`: shell scripts to run the transformation
 * `/lib`: binary libaries used
+
+
+# Example queries in YasGUI
+
+* [Pivot Table](http://yasgui.org/short/V1idNPO-e)
+* [Simple Barchart](http://yasgui.org/short/4ybE4v_-x)
+* [Line Chart per Station](http://yasgui.org/short/4yCJwD_Wg)
+* [Line Chart per Pollutant (Table bar Chart, Heatmap)](http://yasgui.org/short/EyRaEw_Zx )
+* [PoC of Map](http://yasgui.org/short/EyonYU_Zx)

@@ -9,15 +9,15 @@ partno,Partikelanzahl,nombre de particules,particle number
 ec,EC / Russ,EC / Suie,elemental carbon
 O3,O3,O3,O3
 co,CO,CO,CO
-tsp,Gesamtstaub,poussiÃ¨res en suspension,Total suspended particulate matter
-dustfall,Staubniederschlag (SN),RetombÃ©es de pous.,dust fall
+tsp,Gesamtstaub,poussières en suspension,Total suspended particulate matter
+dustfall,Staubniederschlag (SN),Retombées de pous.,dust fall
 pb_pm10,Pb in PM10,Pb dans PM10,Pb in PM10
 cd_pm10,Cd in PM10,Cd dans PM10,Cd in PM10
-pb_dustfall,Pb im SN,Pb retombÃ©e,pb in dustfall
-cd_dustfall,Cd im SN,Cd retombÃ©e,cd in dustfall
-zn_dustfall,Zn im SN,Zn retombÃ©e,zn in dustfall
-ti_dustfall,Tl im SN,Tl retombÃ©e,ti in dustfall
-benzol,Benzol,BenzÃ¨ne,benzol
-toluol,Toluol,ToluÃ¨ne,toluol
+pb_dustfall,Pb im SN,Pb retombée,pb in dustfall
+cd_dustfall,Cd im SN,Cd retombée,cd in dustfall
+zn_dustfall,Zn im SN,Zn retombée,zn in dustfall
+ti_dustfall,Tl im SN,Tl retombée,ti in dustfall
+benzol,Benzol,Benzène,benzol
+toluol,Toluol,Toluène,toluol
 nmvoc,NMVOC,COVNM,nmvoc
 ammonia,Ammoniak,Ammoniac,ammonia

@@ -2,3 +2,12 @@ language: bash
 script:
     - bash scripts/utf8.sh
     - bash scripts/ubd28.sh
+deploy:
+  edge: true
+  provider: releases
+  api-key:
+    - secure: 
+  file: target/proxy-$TRAVIS_TAG-jar-with-dependencies.jar
+  on:
+    tags: true
+    all_branches: true

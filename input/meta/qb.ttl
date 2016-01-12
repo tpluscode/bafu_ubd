@@ -1,0 +1,59 @@
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcterms: <htp://purl.org/dc/terms/> .
+@prefix adms:    <http://www.w3.org/ns/adms#>.
+@prefix locn:    <http://www.w3.org/ns/locn#>.
+@prefix schema: <http://schema.org/>.
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
+@prefix gont: <https://gont.ch/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bafu: <http://example.org/> .
+@prefix qb: <http://purl.org/linked-data/cube#>.
+
+## Dataset
+
+bafu:ubd28 a qb:DataSet;
+    qb:structure bafu:dsd ;
+    rdfs:label "Luftqualität Schweiz (Jahreswerte)"@de ;
+    rdfs:comment "Messdaten (Jahreswerte) von nationalen, kantonalen und kommunalen Messstationen für Luftschadstoffe, zusammengestellt durch die Schweizerische Gesellschaft der Lufthygiene-Fachleute (Cercl'Air) und das BAFU"@de .
+
+## Data structure definition
+
+bafu:dsd a qb:DataStructureDefinition;
+    rdfs:comment "Luftqualität Schweiz"@de;
+    qb:component 
+        [ qb:dimension  bafu:pollutant; ],
+        [ qb:dimension  bafu:station; ],
+        [ qb:attribute  bafu:aggregation; ],
+        [ qb:attribute  bafu:unit; ],
+        [ qb:measure    bafu:measurement; ].
+
+
+
+## Dimensions and measures
+
+bafu:pollutant a qb:DimensionProperty ;
+    rdfs:label "Schadstoff"@de .
+
+bafu:unit a qb:AttributeProperty ;
+    rdfs:label "Einheit"@de .
+
+bafu:station a qb:DimensionProperty ;
+    rdfs:label "Stationscode"@de ;
+    rdfs:comment "Kürzel aus Kanton und Stationsname"@de .
+
+bafu:aggregation a qb:AttributeProperty ;
+    rdfs:label "Aggregation"@de .
+
+bafu:measurement  a qb:MeasureProperty ;
+    rdfs:label "Messung"@de;
+    rdfs:range xsd:float ;
+    .
+
+## TODO
+# Year is key and needs to be added as URI
+# Quantity?
+
+
+

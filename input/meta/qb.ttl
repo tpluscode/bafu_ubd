@@ -25,6 +25,7 @@ bafu:dsd a qb:DataStructureDefinition;
     qb:component 
         [ qb:dimension  bafu:pollutant; ],
         [ qb:dimension  bafu:station; ],
+        [ qb:dimension  bafu:year; ],
         [ qb:attribute  bafu:aggregation; ],
         [ qb:attribute  bafu:unit; ],
         [ qb:measure    bafu:measurement; ].
@@ -48,12 +49,11 @@ bafu:aggregation a qb:AttributeProperty ;
 
 bafu:measurement  a qb:MeasureProperty ;
     rdfs:label "Messung"@de;
-    rdfs:range xsd:float ;
-    .
+    rdfs:range xsd:float .
 
-## TODO
-# Year is key and needs to be added as URI
-# Quantity?
+bafu:year a qb:DimensionProperty;
+    rdfs:label "Jahr"@de.
+
 
 
 

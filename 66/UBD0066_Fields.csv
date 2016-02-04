@@ -1,0 +1,18 @@
+"UBDFeldName","UBDFeldName_de","UBDFeldName_fr","UBDFeldName_it","UBDFeldName_en","UBDFeldBeschreibung_de","UBDFeldBeschreibung_fr","UBDFeldBeschreibung_it","UBDFeldBeschreibung_en","UBDFeldBeschreibungURL","UBDFeldDatenTyp","UBDFeldBeispiel","UBDFeldBemerkung","UBDFeldPflicht","UBDSchluesselfeld","Sort"
+"site_plotID","ID",,,"site_plotID","Kürzel zusammengesetzt aus Standortnummer & Parzelle",,,,,"CODE","1_1",,"Pflicht",1,1
+"site","Standort",,,"site","Standort-Nummer",,,,,"INT","1",,"Pflicht",0,2
+"plot","Parzelle",,,"plot","Beprobte Parzelle pro Standort",,,,,"INT","1",,"Pflicht",0,3
+"community","Gemeinde",,,"community","Standort-Gemeinde",,,,,"CODE","Ettenhausen",,"Pflicht",0,4
+"Xmin","Xmin",,,"Xmin","Minimale X-Koordinate, in welcher sich der Standort befindet",,,,,"INT","258000","CH1903, Nordkoordinate 70'000 - 300'000, gerundet auf 2000 Meter","Pflicht",0,5
+"Ymin","Ymin",,,"Ymin","Minimale Y-Koordinate, in welcher sich der Standort befindet",,,,,"INT","710000","CH1903, Ostkoordinate (480'000 - 850'000), gerundet auf 2000 Meter","Pflicht",0,6
+"Xmax","Xmax",,,"Xmax","Maximale X-Koordinate, in welcher sich der Standort befindet",,,,,"INT","260000","CH1903, Nordkoordinate 70'000 - 300'000, gerundet auf 2000 Meter","Pflicht",0,7
+"Ymax","Ymax",,,"Ymax","Maximale y-Koordinate, in welcher sich der Standort befindet",,,,,"INT","712000","CH1903, Ostkoordinate (480'000 - 850'000), gerundet auf 2000 Meter","Pflicht",0,8
+"altitude","Hoehe",,,"altitude","Höhe (m. ü. M) des Standortes",,,,,"INT","845",,"Pflicht",0,9
+"landuse","Landnutzung",,,"landuse","Landnutzung des Standortes",,,,,"CODE","cropcultivation","siehe NABO-Berichte für Details (http://www.bafu.admin.ch/publikationen/publikation/01809/index.html?lang=de)","Pflicht",0,10
+"surveyNr","Erhebung",,,"surveyNr","Erhebung innerhalb des NABO-Messnetzes, Nummerierung des Beprobungszeitraums",,,,,"CODE","1",,"Pflicht",0,13
+"year","Jahr",,,"year","Jahr der Probenahme",,,,,"INT","1985",,"Pflicht",0,12
+"samplingdate","Probenahmedatum",,,"samplingdate","Datum der Probenahme",,,,,"DATE","25.03.1985",,"Pflicht",1,11
+"parameter","Messparameter",,,"parameter","Gemessenes Element",,,,,"CODE","Cd",,"Pflicht",1,14
+"value","Wert",,,"value","gemessener Wert",,,,,"FLOAT","45.6","leer: Standort wurde zu diesem Zeitpunkt beprobt, für das entsprechende Schwermetall ist jedoch kein Messresultat verfügbar.","Pflicht",0,15
+"unit","Einheit",,,"unit","Einheit des gemessenen Wertes",,,,,"CODE","mg/kg DM",,"Pflicht",0,16
+"remark","Bemerkung",,,"remark","Bemerkung zur einzelnen Messung",,,,,"TEXT",,,"Optional",0,17

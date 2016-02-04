@@ -1,0 +1,13 @@
+"landuse","landuse_de","landuse_fr","landuse_it","landuse_en","landuse_descr","landuse_descr_de","landuse_descr_fr","landuse_descr_it","landuse_descr_en","landuse_remark"
+"cropcultivation","Ackerbau","culture des champs","campicoltura","crop cultivation","Fruchtfolgeflächen",,,,,
+"vegetablegrowing","Gemüsebau","culture maraîchère","orticoltura","vegetable growing",,,,,,
+"grasslandintensiv","Grasland, intensiv","prairie intensive","prato, intensivo","grassland, intensiv","mehrmals genutzt & gedüngt",,,,,
+"grasslandextensiv","Grasland, extensiv","prairie extensive","prato, estensivo","grassland, extensiv","Alpweiden oder ungedüngte Naturwiesen",,,,,
+"grasslandlessintensive","Grasland, wenig intensiv","prairie peu intensive","prato, poco intensivo","grassland, less intensive","ca. 3 x genutzt & gedüngt",,,,,
+"deciduousforest","Laubwald","forêt feuillue","bosco di latifoglie","deciduous forest",,,,,,
+"mixedforest","Mischwald","forêt mixte","bosco misto","mixed forest",,,,,,
+"coniferousforest","Nadelwald","forêt résineuse","bosco di conifere","coniferous forest",,,,,,
+"fruitgrowing","Obstbau","arboriculture","frutticoltura","fruit growing",,,,,,
+"viticulture","Rebbau","viticulture","viticoltura","viticulture",,,,,,
+"protectedsite","Schutzstandort","site protégé","sito protetto","protected site","Standorte in Naturschutzgebieten",,,,,
+"urbanpark","Stadtpark","parc urbain","parco urbano","urban park",,,,,,

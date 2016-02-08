@@ -11,6 +11,7 @@
 @prefix locn:    <http://www.w3.org/ns/locn#>.
 @prefix schema: <http://schema.org/>.
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix gont: <https://gont.ch/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
@@ -322,9 +323,10 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate bafu:samplingdate ;
+    rr:predicate dc:date ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/samplingdate/{samplingdate}"
+      rml:reference "samplingdate" ;
+      rr:datatype xsd:dateTime 
     ]
   ] ;
 

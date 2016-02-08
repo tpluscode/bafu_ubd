@@ -212,4 +212,86 @@
     ]
  ] .
 
+<#Landuse>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_landuse.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/landuse/{landuse}";
+    rr:class bafu:Landuse ;
+  ];
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "landuse_de";
+      rr:language "de" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "landuse_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "landuse_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "landuse_en";
+      rr:language "en" ;
+    ]
+ ] ;
+
+## TODO probably not necessary once everything is translated
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "landuse_descr";
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "landuse_descr_de";
+      rr:language "de" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "landuse_descr_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "landuse_descr_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "landuse_descr_en";
+      rr:language "en" ;
+    ]
+ ] .
  

@@ -1,2 +1,2 @@
-"unit","unit_de","unit_fr","unit_it","unit_en","unit_descr","unit_descr_de","unit_descr_fr","unit_descr_it","unit_descr_en","unit_remark"
-"mg/kg DM","mg/kg TS","mg/kg MS","mg/kg SS","mg/kg DM","Konzentration in mg bezogen auf kg Trockensubstanz des Bodens",,,,,
+"unit_id","unit","unit_de","unit_fr","unit_it","unit_en","unit_descr","unit_descr_de","unit_descr_fr","unit_descr_it","unit_descr_en","unit_remark"
+"mg_kg_dm","mg/kg DM","mg/kg TS","mg/kg MS","mg/kg SS","mg/kg DM","Konzentration in mg bezogen auf kg Trockensubstanz des Bodens",,,,,

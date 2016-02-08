@@ -23,10 +23,8 @@
     rml:referenceFormulation ql:CSV
   ]; 
 
-# TODO there is no ID for unit, might look ugly URIencoded
-
   rr:subjectMap [
-    rr:template "http://environment.data.admin.ch/ubd/66/unit/{unit}";
+    rr:template "http://environment.data.admin.ch/ubd/66/unit/{unit_id}";
     rr:class bafu:Unit ;
   ];
 
@@ -94,15 +92,11 @@
     ]
  ] .
 
- ## TODO unit_remark is empty, not sure what this is supposed to be
-
 <#SitePlot>
   rml:logicalSource [
     rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
-
-# TODO there is no ID for unit, might look ugly URIencoded
 
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/66/siteplot/{site_plotID}";
@@ -302,8 +296,7 @@
   ]; 
 
   rr:subjectMap [
-    ## TODO check which one are key
-    rr:template "http://environment.data.admin.ch/ubd/66/measurement/{site_plotID}/{landuse}/{parameter}/{samplingdate}/{year}/{surveyNr}/{unit}";
+    rr:template "http://environment.data.admin.ch/ubd/66/measurement/{site_plotID}/{parameter}/{samplingdate}";
     rr:class bafu:Measurement, qb:Observation;
   ];
 

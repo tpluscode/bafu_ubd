@@ -294,4 +294,79 @@
       rr:language "en" ;
     ]
  ] .
- 
+
+ <#Base>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    ## TODO check which one are key
+    rr:template "http://environment.data.admin.ch/ubd/66/measurement/{site_plotID}/{landuse}/{parameter}/{samplingdate}/{year}/{surveyNr}/{unit}";
+    rr:class bafu:Measurement, qb:Observation;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:siteplot ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/siteplot/{site_plotID}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:landuse ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/landuse/{landuse}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:parameter ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/parameter/{parameter}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:samplingdate ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/samplingdate/{samplingdate}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:unit ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/unit/{unit}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:year ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/year/{year}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:survey ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/survey/{surveyNr}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:measurement;
+    rr:objectMap [
+      rml:reference "value" ;
+      rr:datatype xsd:float  
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "remark"
+    ]
+  ] .

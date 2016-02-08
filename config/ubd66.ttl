@@ -95,3 +95,76 @@
  ] .
 
  ## TODO unit_remark is empty, not sure what this is supposed to be
+
+<#SitePlot>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+# TODO there is no ID for unit, might look ugly URIencoded
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/siteplot/{site_plotID}";
+    rr:class bafu:SitePlot ;
+  ];
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:site;
+    rr:objectMap [
+      rml:reference "site";
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:plot;
+    rr:objectMap [
+      rml:reference "plot";
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:municipality;
+    rr:objectMap [
+      rml:reference "community";
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:lv03_x_min;
+    rr:objectMap [
+      rml:reference "Xmin";
+      rr:datatype xsd:float ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:lv03_y_min;
+    rr:objectMap [
+      rml:reference "Ymin";
+      rr:datatype xsd:float ;
+    ]
+  ] ;
+    rr:predicateObjectMap [
+    rr:predicate bafu:lv03_x_max;
+    rr:objectMap [
+      rml:reference "Xmax";
+      rr:datatype xsd:float ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:lv03_y_max;
+    rr:objectMap [
+      rml:reference "Ymax";
+      rr:datatype xsd:float ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate bafu:altitude;
+    rr:objectMap [
+      rml:reference "altitude" ;
+      rr:datatype xsd:double ;
+    ]
+  ] .

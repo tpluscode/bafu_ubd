@@ -168,3 +168,48 @@
       rr:datatype xsd:double ;
     ]
   ] .
+
+<#Parameter>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_parameter.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/parameter/{parameter}";
+    rr:class bafu:Parameter ;
+  ];
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "parameter_de";
+      rr:language "de" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "parameter_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "parameter_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "parameter_en";
+      rr:language "en" ;
+    ]
+ ] .
+
+ 

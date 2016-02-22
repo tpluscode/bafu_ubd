@@ -14,13 +14,13 @@
 ## Dataset
 
 bafu:ubd28 a qb:DataSet;
-    qb:structure bafu:dsd ;
+    qb:structure bafu:dsd_ubd28 ;
     rdfs:label "Luftqualität Schweiz (Jahreswerte)"@de ;
     rdfs:comment "Messdaten (Jahreswerte) von nationalen, kantonalen und kommunalen Messstationen für Luftschadstoffe, zusammengestellt durch die Schweizerische Gesellschaft der Lufthygiene-Fachleute (Cercl'Air) und das BAFU"@de .
 
 ## Data structure definition
 
-bafu:dsd a qb:DataStructureDefinition;
+bafu:dsd_ubd28 a qb:DataStructureDefinition;
     rdfs:comment "Luftqualität Schweiz"@de;
     qb:component 
         [ qb:dimension  bafu:pollutant; ],
@@ -29,8 +29,6 @@ bafu:dsd a qb:DataStructureDefinition;
         [ qb:attribute  bafu:aggregation; ],
         [ qb:attribute  bafu:unit; ],
         [ qb:measure    bafu:measurement; ].
-
-
 
 ## Dimensions and measures
 

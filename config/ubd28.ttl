@@ -14,7 +14,7 @@
 @prefix gont: <https://gont.ch/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
-@prefix bafu: <http://example.org/ubd/28/> .
+@prefix bafu: <http://environment.data.admin.ch/ubd/28/qb/> .
 
 
 <#Pollutant>
@@ -207,6 +207,13 @@
     rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}/{unit_id}";
     rr:class bafu:Measurement, qb:Observation;
   ];
+
+  rr:predicateObjectMap [
+    rr:predicate qb:dataSet ;
+    rr:objectMap [
+      rr:constant "http://environment.data.admin.ch/ubd/28/qb/ubd28"
+    ]
+  ] ;
 
   rr:predicateObjectMap [
     rr:predicate bafu:station ;

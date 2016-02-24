@@ -15,7 +15,7 @@
 @prefix gont: <https://gont.ch/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
-@prefix bafu: <http://example.org/> .
+@prefix bafu: <http://environment.data.admin.ch/ubd/66/qb/> .
 
 
 <#Unit>
@@ -319,6 +319,13 @@
     rr:template "http://environment.data.admin.ch/ubd/66/measurement/{site_plotID}/{parameter}/{samplingdate}";
     rr:class bafu:Measurement, qb:Observation;
   ];
+
+  rr:predicateObjectMap [
+    rr:predicate qb:dataSet ;
+    rr:objectMap [
+      rr:constant "http://environment.data.admin.ch/ubd/66/qb/ubd66"
+    ]
+  ] ;
 
   rr:predicateObjectMap [
     rr:predicate bafu:siteplot ;

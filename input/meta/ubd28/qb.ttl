@@ -8,7 +8,7 @@
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
 @prefix gont: <https://gont.ch/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix bafu: <http://example.org/> .
+@prefix bafu: <http://environment.data.admin.ch/ubd/28/qb/> .
 @prefix qb: <http://purl.org/linked-data/cube#>.
 
 ## Dataset

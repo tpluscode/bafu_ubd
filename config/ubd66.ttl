@@ -323,7 +323,7 @@
   rr:predicateObjectMap [
     rr:predicate qb:dataSet ;
     rr:objectMap [
-      rr:constant "http://environment.data.admin.ch/ubd/66/qb/ubd66"
+      rr:constant <http://environment.data.admin.ch/ubd/66/qb/ubd66>
     ]
   ] ;
 

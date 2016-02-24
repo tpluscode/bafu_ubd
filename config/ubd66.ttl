@@ -61,8 +61,8 @@
     ]
  ] ;
 
-     rr:predicateObjectMap [
-    rr:predicate rdfs:comment;
+    rr:predicateObjectMap [
+    rr:predicate bafu:comment;
     rr:objectMap [
       rml:reference "unit_descr_de";
       rr:language "de" ;
@@ -70,7 +70,7 @@
   ] ;
 
     rr:predicateObjectMap [
-    rr:predicate rdfs:comment;
+    rr:predicate bafu:comment;
     rr:objectMap [
       rml:reference "unit_descr_fr";
       rr:language "fr" ;
@@ -78,7 +78,7 @@
   ] ;
 
     rr:predicateObjectMap [
-    rr:predicate rdfs:comment;
+    rr:predicate bafu:comment;
     rr:objectMap [
       rml:reference "unit_descr_it";
       rr:language "it" ;
@@ -290,6 +290,25 @@
     ]
  ] .
 
+ <#Year>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/year/{year}";
+    rr:class bafu:Year, qb:Observation;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:year;
+    rr:objectMap [
+      rml:reference "year" ;
+      rr:datatype xsd:gYear  
+    ]
+  ] .
+
  <#Base>
   rml:logicalSource [
     rml:source "input/ubd/66/UBD0066_Basetable.csv";
@@ -323,7 +342,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate dc:date ;
+    rr:predicate bafu:date ;
     rr:objectMap [
       rml:reference "samplingdate" ;
       rr:datatype xsd:dateTime 
@@ -338,7 +357,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate bafu:year ;
+    rr:predicate bafu:refPeriod ;
     rr:objectMap [
       rr:template "http://environment.data.admin.ch/ubd/66/year/{year}"
     ]
@@ -360,7 +379,7 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate rdfs:comment;
+    rr:predicate bafu:comment;
     rr:objectMap [
       rml:reference "remark"
     ]

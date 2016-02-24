@@ -25,7 +25,7 @@ bafu:dsd_ubd28 a qb:DataStructureDefinition;
     qb:component 
         [ qb:dimension  bafu:pollutant; ],
         [ qb:dimension  bafu:station; ],
-        [ qb:dimension  bafu:year; ],
+        [ qb:dimension  bafu:refPeriod; ],
         [ qb:attribute  bafu:aggregation; ],
         [ qb:attribute  bafu:unit; ],
         [ qb:measure    bafu:measurement; ].
@@ -49,7 +49,7 @@ bafu:measurement  a qb:MeasureProperty ;
     rdfs:label "Messung"@de;
     rdfs:range xsd:float .
 
-bafu:year a qb:DimensionProperty;
+bafu:refPeriod a qb:DimensionProperty;
     rdfs:label "Jahr"@de.
 
 

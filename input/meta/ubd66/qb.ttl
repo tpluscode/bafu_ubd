@@ -23,15 +23,15 @@ bafu:ubd66 a qb:DataSet;
 bafu:dsd_ubd66 a qb:DataStructureDefinition;
     rdfs:comment "Schwermetallbelastung des Bodens"@de;
     qb:component 
-        [ qb:dimension  bafu:siteplot; ],
-        [ qb:dimension  bafu:landuse; ],
-        [ qb:dimension  bafu:parameter; ],
-        [ qb:dimension  bafu:date; ],
-        [ qb:dimension  bafu:refPeriod; ],
-        [ qb:attribute  bafu:unit; ],
-        [ qb:measure    bafu:measurement; ],
-        [ qb:dimension  bafu:survey; ],
-        [ qb:dimension  bafu:comment; ].
+        [ qb:dimension  bafu:siteplot; qb:order 1 ],
+        [ qb:dimension  bafu:landuse; qb:order 2 ],
+        [ qb:dimension  bafu:parameter; qb:order 3 ],
+        [ qb:dimension  bafu:date; qb:order 4 ],
+        [ qb:dimension  bafu:refPeriod; qb:order 5 ],
+        [ qb:dimension  bafu:survey; qb:order 6 ],
+        [ qb:measure    bafu:measurement; qb:order 7 ],
+        [ qb:attribute  bafu:unit; qb:order 8 ],
+        [ qb:dimension  bafu:comment; qb:order 9 ].
 
 
 

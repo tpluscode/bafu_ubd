@@ -23,12 +23,12 @@ bafu:ubd28 a qb:DataSet;
 bafu:dsd_ubd28 a qb:DataStructureDefinition;
     rdfs:comment "Luftqualität Schweiz"@de;
     qb:component 
-        [ qb:dimension  bafu:pollutant; ],
-        [ qb:dimension  bafu:station; ],
-        [ qb:dimension  bafu:refPeriod; ],
-        [ qb:attribute  bafu:aggregation; ],
-        [ qb:attribute  bafu:unit; ],
-        [ qb:measure    bafu:measurement; ].
+        [ qb:dimension  bafu:station; qb:order 1 ],
+        [ qb:dimension  bafu:pollutant; qb:order 2 ],
+        [ qb:attribute  bafu:aggregation; qb:order 3 ],
+        [ qb:dimension  bafu:refPeriod; qb:order 4 ],
+        [ qb:measure    bafu:measurement; qb:order 5 ],
+        [ qb:attribute  bafu:unit; qb:order 6 ].
 
 ## Dimensions and measures
 

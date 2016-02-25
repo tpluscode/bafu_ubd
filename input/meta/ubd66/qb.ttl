@@ -1,0 +1,71 @@
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcterms: <htp://purl.org/dc/terms/> .
+@prefix adms:    <http://www.w3.org/ns/adms#>.
+@prefix locn:    <http://www.w3.org/ns/locn#>.
+@prefix schema: <http://schema.org/>.
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>.
+@prefix gont: <https://gont.ch/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bafu: <http://environment.data.admin.ch/ubd/66/qb/> .
+@prefix qb: <http://purl.org/linked-data/cube#>.
+
+## Dataset
+
+bafu:ubd66 a qb:DataSet;
+    qb:structure bafu:dsd_ubd66 ;
+    rdfs:label "Schwermetallbelastung des Bodens"@de ;
+    rdfs:comment "Messdaten (Erhebungsmittelwerte) von Schwermetallkonzentrationen in den obersten 20 cm des Bodens von rund 100 Dauerbeobachtungsstandorten der Nationalen Bodenbeobachtung NABO."@de .
+
+## Data structure definition
+
+bafu:dsd_ubd66 a qb:DataStructureDefinition;
+    rdfs:comment "Schwermetallbelastung des Bodens"@de;
+    qb:component 
+        [ qb:dimension  bafu:siteplot; ],
+        [ qb:dimension  bafu:landuse; ],
+        [ qb:dimension  bafu:parameter; ],
+        [ qb:dimension  bafu:date; ],
+        [ qb:dimension  bafu:refPeriod; ],
+        [ qb:attribute  bafu:unit; ],
+        [ qb:measure    bafu:measurement; ],
+        [ qb:dimension  bafu:survey; ],
+        [ qb:dimension  bafu:comment; ].
+
+
+
+## Dimensions and measures
+
+bafu:siteplot a qb:DimensionProperty ;
+    rdfs:label "Standort-Nummer/Beprobte Parzelle pro Standort"@de ;
+    rdfs:comment "Kürzel zusammengesetzt aus Standortnummer & Parzelle" .
+
+bafu:landuse a qb:DimensionProperty ;
+    rdfs:label "Landnutzung des Standortes"@de .
+
+bafu:parameter a qb:DimensionProperty ;
+    rdfs:label "Gemessenes Element"@de .
+
+bafu:date a qb:DimensionProperty ;
+    rdfs:label "Datum der Probenahme"@de .
+
+bafu:refPeriod a qb:DimensionProperty ;
+    rdfs:label "Jahr der Probenahme"@de .
+
+bafu:unit a qb:AttributeProperty ;
+    rdfs:label "Einheit"@de .
+
+bafu:measurement  a qb:MeasureProperty ;
+    rdfs:label "Messung"@de;
+    rdfs:range xsd:float .
+
+bafu:survey a qb:DimensionProperty ;
+    rdfs:label "Erhebung"@de ;
+    rdfs:comment "Erhebung innerhalb des NABO-Messnetzes, Nummerierung des Beprobungszeitraums"@de .
+
+bafu:comment a qb:DimensionProperty ;
+    rdfs:label "Kommentar"@de .
+
+
+

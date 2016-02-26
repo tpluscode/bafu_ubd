@@ -204,7 +204,7 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}/{unit_id}";
+    rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}";
     rr:class bafu:Measurement, qb:Observation;
   ];
 

@@ -27,7 +27,7 @@ bafu:dsd_ubd28 a qb:DataStructureDefinition;
         [ qb:dimension  bafu:pollutant; qb:order 2 ],
         [ qb:attribute  bafu:aggregation; qb:order 3 ],
         [ qb:dimension  bafu:refPeriod; qb:order 4 ],
-        [ qb:measure    bafu:measurement; qb:order 5 ],
+        [ qb:measure    bafu:measurement; qb:order 5 ], 
         [ qb:attribute  bafu:unit; qb:order 6 ].
 
 ## Dimensions and measures

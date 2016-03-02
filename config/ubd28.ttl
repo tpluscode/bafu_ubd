@@ -195,6 +195,12 @@
       rml:reference "year" ;
       rr:datatype xsd:gYear  
     ]
+  ];
+
+  rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "year" ;
+    ]
   ] .
 
   <#Base>

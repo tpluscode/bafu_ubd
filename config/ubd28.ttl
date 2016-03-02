@@ -197,11 +197,12 @@
     ]
   ];
 
-  rr:predicate rdfs:label;
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
     rr:objectMap [
-      rml:reference "year" ;
+      rml:reference "year" 
     ]
-  ] .
+  ].
 
   <#Base>
   rml:logicalSource [

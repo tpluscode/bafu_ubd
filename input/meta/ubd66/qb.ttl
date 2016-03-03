@@ -30,8 +30,8 @@ bafu:dsd_ubd66 a qb:DataStructureDefinition;
         [ qb:dimension  bafu:refPeriod; qb:order 5 ],
         [ qb:dimension  bafu:survey; qb:order 6 ],
         [ qb:measure    bafu:measurement; qb:order 7 ],
-        [ qb:attribute  bafu:unit; qb:order 8 ],
-        [ qb:dimension  bafu:comment; qb:order 9 ].
+        [ qb:attribute  bafu:unit; qb:order 8 ].
+#        [ qb:dimension  bafu:comment; qb:order 9 ]. # TODO currently empty, needs to become optional
 
 
 

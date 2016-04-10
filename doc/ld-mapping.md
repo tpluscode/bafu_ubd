@@ -125,7 +125,9 @@ The final step is to map the base table. This is the table where we define the m
 * The subject might have multiple classes, in our example `bafu:Measurement` (defined by ourself) and `qb:Observation`, which is defined in the Data Cube vocabulary.
 * The URI of the subject needs to contain _all_ key values defined in the dataset. Add them separated by a slash (`/`). We order it according to the order of the specification in OpenOffice format. [Example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L214):
 
-    rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}";
+```
+rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}";
+```
 
 * In case the column contains a key that refers to another table mapped before, the object of this triple needs to be a URI and not a literal value. Like this we create real Linked Data. As we use the same key as in the data itself, this is straight forward. [Example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L225):
 

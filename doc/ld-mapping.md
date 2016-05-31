@@ -1,22 +1,55 @@
 # From Tabular to Linked Data using Data Cubes
 
-Within a [LINDAS use case with BAFU](https://github.com/lindas-uc/bafu_ubd) we converted various data sets to Linked Data. This document briefly describes what needs to be done for additional datasets.
+Within a [LINDAS use case with FOEN](https://github.com/lindas-uc/bafu_ubd) we converted various data sets from the Federal Office for the Environment FOEN to Linked Data. This document briefly describes what needs to be done for additional datasets.
 
-## Vocabulary
+## Introduction
 
-Within the Linked Data community [Data Cube Vocabulary](http://www.w3.org/TR/vocab-data-cube/) is the most used and most useful vocabulary for converting multi dimensional tabular data to Linked Data and RDF. This document does not go into details of Data Cube Vocabulary and it is recommended to read the full specification and its example first.
+As of today most tabular data is made available on institution websites or in open data portals like CKAN. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data that gets pushed into the system is the data which is made available to the user.
 
-## Data preparation
+Tabular data is usually made available as CSV or Excel/OpenOffice Spreadsheet. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these open data sets and its apps increases.
 
-In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional metadata according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not.
+In the case of FOEN this might not even be possible: Many datasets contain millions or even billions of records. Loading such datasets in its entirety requires special tooling and cannot be done with the average spreadsheet application or database system. In discussions with FOEN it became clear, that this is one of the big obstacles of the current approach. There is far more knowledge in these data sets available than what is visible and accessible to the open data developer or researcher.
 
-The datasets were very well prepared by BAFU. All structural data is available as its own CSV file which makes it extremely simple to expose everything as RDF. After first tests it was decided to introduce one additional column to the structural data: A field name which still looks well after it is [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). This is optional but it makes generated HTTP URIs in the RDF data much more readable. This work was done by the data owner for each row in the CSV.
+### Linked Data
+
+Within this prototype we tried another approach: Convert the tabular data to a standarized format, load it to an appropriate database and provide a web based tool, which facilitates consumption of this dataset and resembles a standard spreadsheet. Also make sure the data or a subset of it can be exported to CSV again.
+
+We setteled on the following standards:
+
+* RDF as data model
+* Data Cube Vocabulary for describing the tabular data in a re-useable way
+* Load it to a so called Triplestore database (provided by LINDAS)
+* Query it using SPARQL
+
+[RDF](http://www.w3.org/TR/rdf11-concepts/), [RDF Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/) and [SPARQL](https://www.w3.org/TR/sparql11-query/) are W3C standards and are implemented in a large variety of open source and commercial products.
+
+We will not cover the basics of RDF within this document, please refer to the [RDF Primer](https://www.w3.org/TR/rdf11-primer/) for a basic introduction to RDF and/or the [Linked Data on Speed](http://presentations.zazuko.com/LD-Speed/#2) presentation. We also provide a list of [recommended books](http://presentations.zazuko.com/LD-Speed/#46) about the topic and implementations of the RDF model in [various programming languages](http://presentations.zazuko.com/LD-Speed/#47).
+
+One of the basic concepts of RDF is that a information is identified as a URI, as shown in the RDF Primer. By making this URI available as a "link" on the Web, people can follow the relationships in the data and find related information easily. RDF is thus also often called Linked Data and extends the classical Web of document in a powerful way.
+
+### RDF Data Cube Vocabulary
+
+Within the Linked Data community [Data Cube Vocabulary](http://www.w3.org/TR/vocab-data-cube/) is the most used and most useful vocabulary for converting multi dimensional tabular data to Linked Data and RDF. We just provide a basic introduction to this vocabulary, it is recommended to read the full specification and its example first. Within this prototype we do not provide a fully validated implementation of the Data Cube vocabulary but focus on the most important aspects of it.
+
+#### Metadata
+
+In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional metadata according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not. This is the base for the DCAT & [VoID](https://www.w3.org/TR/void/) file, which is currently maintained outside the FOEN Github repository with other [LINDAS metadata](https://github.com/zazuko/lindas-datasets/blob/gh-pages/input/void.ttl).
+
+This VoID file maps the metatata described in the OpenOffice file to its according RDF DCAT and VoID identifiers and should be pretty much self-explanatory. If you are unsure you might want to consult the W3C [Data on the Web Best Practices](https://www.w3.org/TR/dwbp/) document, which was also used by the author of this document.
+
+
+
+## Conversion process
+
+### Data preparation
+
+The datasets were very well prepared by FOEN. All structural data is available as its own CSV file which makes it extremely simple to expose everything as RDF. After first tests it was decided to introduce one additional column to the structural data: A field name which still looks well after it is [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). This is optional but it makes generated HTTP URIs in the RDF data much more readable. This work was done by the data owner for each row in the CSV.
 
 Next to the structural data there is one base table. This table contains the "normalized" data according to the specification of the dataset. Each reference to another table is done using the field name mentioned above as key. This makes it very easy to reference the structural data and the generated URI for each measure looks human readable as well.
 
 In this prototype most of the data was curated in relational databases so generating these different exports could be done with views on the database structure. It would also be possible to directly access the database using [R2RML](https://www.w3.org/TR/r2rml/) but as this requires ODBC access to the database this was dismissed for the prototype for practical reasons.
 
-## Tooling
+### Tooling
 
 To convert CSV data to Linked Data we use the [RML](http://rml.io/) standard and tool chain provided by [iMinds Multimedia Lab](http://www.iminds.be/) of Ghent University. RML defines an RDF vocabulary to map non-RDF data to RDF, see its [specification](http://rml.io/spec.html). Currently RML is able to convert XML, JSON and CSV data to RDF. In this prototype only CSV sources were used. Again, it is recommended to read the full specification to understand the details of the mappings described in this document.
 
@@ -24,7 +57,7 @@ An implementation of RML in Java is available on Github. The tool which is used 
 
 Conversion is automated in shell scripts which also get executed on Github commits using Travis. See [the build scripts](https://github.com/lindas-uc/bafu_ubd/tree/master/scripts) and the [Travis configuration](https://github.com/lindas-uc/bafu_ubd/blob/master/.travis.yml) for details.
 
-## RML mapping
+### RML mapping
 
  To convert one of the datasets to RDF, RMLMapper is executed:
 
@@ -45,7 +78,7 @@ For the base table we need to do one additional step:
 
 We provide an example for each step based on the UBD28 mapping.
 
-### Create an RML mapping
+#### Create an RML mapping
 
 We can define all mappings in one single configuration file. To define a new RML mapping we simply define a new subject in this configuration. Any name can be chosen but it makes sense to use a similar name to what we map. This name needs to be unique and cannot be re-used for other mapping within this configuration.
 
@@ -53,7 +86,7 @@ Example for [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd
 
     <#Pollutant>
 
-### Define the data source
+#### Define the data source
 
 After the mapping definition we need to specify the data source and type. This is straight forward as it is always CSV in our case.
 
@@ -69,7 +102,7 @@ Example for UBD28:
 
 The property `rml:logicalSource` points to a blank node which defines the source file via `rml:source` and the mapping type (CSV) by specifying `rml:referenceFormulation ql:CSV`.
 
-### Define a subject
+#### Define a subject
 
 For each mapping one needs to define a subject URI. This URI will identify the mapped data and should be persistent whenever possible. In the case of our well prepared data set this is again [straight forward](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L26):
 
@@ -84,7 +117,7 @@ By definining `rr:template` we define the URI used. The final part of the URI is
 
 We also define a class for the subject, in the case of Data Cube vocabulary this is usually done in your own namespace, as we will see later. In this example the class is `bafu:Pollutant`.
 
-### Map predicates
+#### Map predicates
 
 The rest of the mapping is straight forward: Map every attribute as an RDF predicate, [for example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L31):
 
@@ -118,7 +151,7 @@ We use `rr:datatype` instead and assign a well known data type like `xsd:gYear` 
 
 In the example above we also invented our own predicate called `bafu:year`, this is again used in the Data Cube specification later.
 
-### Map the base table
+#### Map the base table
 
 The final step is to map the base table. This is the table where we define the measurement itself, which is in the end what we want to make available in the data cube. Mapping a base table looks pretty much like mapping structural data, with [a few exceptions](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L207):
 
@@ -142,7 +175,7 @@ rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{p
 
 In the `rr:objectMap` we define again a predicate called `rr:template` which ends up as an URI in the data. We used the same principle to create a subject URI before. Use the column name as a variable again, in our case `station_id`.
 
-## Data Cube Metadata
+### Data Cube Metadata
 
 Once all mappings are done we just need to define some metadata using the Data Cube vocabulary. We do that by maintaining one file per dataset which defines all the necessary metadata in one place. See [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/input/meta/ubd28/qb.ttl) for a complete example.
 

@@ -73,6 +73,11 @@ Once the meta data is set one can start to convert each row to RDF data. Data Cu
 
 Once this is done we are set and have a basic RDF Data Cube available.
 
+Sample Measurement:
+
+* http://environment.data.admin.ch/ubd/28/measurement/neLCF/O3/nodaysmaxhourlymeanabove120/2002
+* http://environment.data.admin.ch/ubd/28/measurement/tiLUG/pb_dustfall/annualmean/1992
+
 #### Normalizing re-occuring enties in columns
 
 In our original spreadsheet file we re-use the same terms for describing a re-occuring item in a column. This makes it possible to use pivoting tools to quickly filter for a certain value. If we would model that in a relational database this would be modeled as a relation to its own table (normalization). This is what we need for RDF as well and for that reason the data got prepared that way upfront.

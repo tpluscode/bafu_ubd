@@ -8,6 +8,8 @@ As of today most tabular data is made available on institution websites or in op
 
 Tabular data is usually made available as CSV or Excel/OpenOffice Spreadsheet. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these open data sets and its apps increases.
 
+![UBD28 Spreadsheet](img/spreadsheet.png)
+
 In the case of FOEN this might not even be possible: Many datasets contain millions or even billions of records. Loading such datasets in its entirety requires special tooling and cannot be done with the average spreadsheet application or database system. In discussions with FOEN it became clear, that this is one of the big obstacles of the current approach. There is far more knowledge in these data sets available than what is visible and accessible to the open data developer or researcher.
 
 ### Linked Data
@@ -25,7 +27,11 @@ We settled on the following standards:
 
 We will not cover the basics of RDF within this document, please refer to the [RDF Primer](https://www.w3.org/TR/rdf11-primer/) for a basic introduction to RDF and/or the [Linked Data on Speed](http://presentations.zazuko.com/LD-Speed/#2) presentation. We also provide a list of [recommended books](http://presentations.zazuko.com/LD-Speed/#46) about the topic and implementations of the RDF model in [various programming languages](http://presentations.zazuko.com/LD-Speed/#47).
 
+![RDF Data Model](img/AThing2.svg)
+
 One of the basic concepts of RDF is that a information is identified as a URI, as shown in the RDF Primer. By making this URI available as a "link" on the Web, people can follow the relationships in the data and find related information easily. RDF is thus also often called Linked Data and extends the classical Web of document in a powerful way.
+
+RDF provides support for multiple languages within its core. This is another feature we will use as we can describe meta data in the data cube in multiple languages with almost no extra effort.
 
 ### RDF Data Cube Vocabulary
 
@@ -33,26 +39,51 @@ Within the Linked Data community [Data Cube Vocabulary](http://www.w3.org/TR/voc
 
 #### Data Set Metadata
 
-In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional metadata according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not. This is the base for the DCAT & [VoID](https://www.w3.org/TR/void/) file, which is currently maintained outside the FOEN Github repository with other [LINDAS metadata](https://github.com/zazuko/lindas-datasets/blob/gh-pages/input/void.ttl).
+In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional meta data according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not. This is the base for the DCAT & [VoID](https://www.w3.org/TR/void/) file, which is currently maintained outside the FOEN Github repository with other [LINDAS meta data](https://github.com/zazuko/lindas-datasets/blob/gh-pages/input/void.ttl).
+
+![UBD28 Metadata](img/meta data.png)
 
 This VoID file maps the metatata described in the OpenOffice file to its according RDF DCAT and VoID identifiers and should be pretty much self-explanatory. If you are unsure you might want to consult the W3C [Data on the Web Best Practices](https://www.w3.org/TR/dwbp/) document.
 
+![Basic VoID Metadata rendered on the Web](img/void-web.png)
+
 #### Data Cube Metadata
 
-As a next step one needs to define the Data Cube itself. We do that by maintaining one file per dataset which defines all the necessary metadata in one place. See [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/input/meta/ubd28/qb.ttl) for a complete example.
+As a next step one needs to define the Data Cube itself. We do that by maintaining one file per dataset which defines all the necessary meta data in one place. See [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/input/meta/ubd28/qb.ttl) for a complete example.
 
 Requirements:
 
 * We need one `qb:DataSet` definition which is the base for everything else. This definition can contain comments & labels in multiple languages so users can easily find what they need. We should at least provide a `rdfs:label`, `rdfs:comment` and point to the `qb:structure` defined next. 
 * In the `qb:DataStructureDefinition` we define all so-called components (all subclasses of `qb:ComponentProperty`) as `qb:DimensionProperty`, `qb:AttributeProperty` or `qb:MeasureProperty`. These components represent the rows in our tabular data. Usually one should provide one of these for each row in the CSV. The distinction between the three is a bit tricky, please refer to the Data Cube Vocabulary for more details and consult our example mapping. Note that the URIs for these components are used later when we map the rows to RDF.
 * We also assign an order to the components by using the `qb:order` predicate. Lower value means higher order. This is useful for deciding which column should be shown first in a visualization.
-* For each component we need to add additional metadata so they become more accessible for users. The more labels in multiple languages we add, the easier it becomes for the user to understand what this column is about. This label is also used in the generic table viewer as a name for the columns.
+* For each component we need to add additional meta data so they become more accessible for users. The more labels in multiple languages we add, the easier it becomes for the user to understand what this column is about. This label is also used in the generic [table viewer](http://cpvrlab.github.io/sparql-table-viewer/) as a name for the columns.
+
+![Headers get mapped as qb:DimensionProperty](img/header.png)
+
+You can browse our definitions as Linked Data on the Web:
+
+* http://environment.data.admin.ch/ubd/28/qb/ubd28
+* http://environment.data.admin.ch/ubd/66/qb/ubd66
 
 #### Describing a measurement
 
-Once the metadata is set one can start to convert each row to RDF data. Data Cube Vocabulary is defining a class called `qb:Observation` for this. Every single row in the CSV file (except the header) will be transformed to a `qb:Observation`. Obviously the most important information assigned to such an observation is what we measured. This means every observation contains a measured value, ideally an assigned unit and then all the other constraints which are necessary to uniquely describe this particular measurement. Doing this properly is essential, we re-use the `qb:ComponentProperty` defined above for this.
+Once the meta data is set one can start to convert each row to RDF data. Data Cube Vocabulary is defining a class called `qb:Observation` for this. Every single row in the CSV file (except the header) will be transformed to a `qb:Observation`. Obviously the most important information assigned to such an observation is what we measured. This means every observation contains a measured value, ideally an assigned unit and then all the other constraints which are necessary to uniquely describe this particular measurement. Doing this properly is essential, we re-use the `qb:ComponentProperty` defined above for this.
+
+![Normalized base table as CSV](img/basetable.png)
 
 Once this is done we are set and have a basic RDF Data Cube available.
+
+#### Normalizing re-occuring enties in columns
+
+In our original spreadsheet file we re-use the same terms for describing a re-occuring item in a column. This makes it possible to use pivoting tools to quickly filter for a certain value. If we would model that in a relational database this would be modeled as a relation to its own table (normalization). This is what we need for RDF as well and for that reason the data got prepared that way upfront.
+
+![Re-occuring entries in columns](img/pollutant.png)
+
+This makes it very easy to create RDF out of it which can then be referenced from the base table shown before. We will simply create unique URIs for each row and add `rdfs:labels` in all the available languages to the output.
+
+Example:
+
+* http://environment.data.admin.ch/ubd/28/pollutant/partno
 
 ## Conversion process
 
@@ -107,7 +138,7 @@ After the mapping definition we need to specify the data source and type. This i
 
 Example for UBD28:
 
-```
+```turtle
 <#Pollutant>
   rml:logicalSource [
     rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_pollutant_id.csv";
@@ -121,7 +152,7 @@ The property `rml:logicalSource` points to a blank node which defines the source
 
 For each mapping one needs to define a subject URI. This URI will identify the mapped data and should be persistent whenever possible. In the case of our well prepared data set this is again [straight forward](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L26):
 
-```
+```turtle
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/28/pollutant/{pollutant_id}";
     rr:class bafu:Pollutant ;
@@ -136,7 +167,7 @@ We also define a class for the subject, in the case of Data Cube vocabulary this
 
 The rest of the mapping is straight forward: Map every attribute as an RDF predicate, [for example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L31):
 
-```
+```turtle
     rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
@@ -152,7 +183,7 @@ The predicate used in this example is `rdfs:label` and we map it to the CSV colu
 
 In case of a data type we need to slightly adjust [the mapping](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L192):
 
-```
+```turtle
   rr:predicateObjectMap [
     rr:predicate bafu:year;
     rr:objectMap [
@@ -173,13 +204,13 @@ The final step is to map the base table. This is the table where we define the m
 * The subject might have multiple classes, in our example `bafu:Measurement` (defined by ourself) and `qb:Observation`, which is defined in the Data Cube vocabulary.
 * The URI of the subject needs to contain _all_ key values defined in the dataset. Add them separated by a slash (`/`). We order it according to the order of the specification in OpenOffice format. [Example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L214):
 
-```
+```turtle
 rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{pollutant_id}/{aggregation_id}/{year}";
 ```
 
 * In case the column contains a key that refers to another table mapped before, the object of this triple needs to be a URI and not a literal value. Like this we create real Linked Data. As we use the same key as in the data itself, this is straight forward. [Example](https://github.com/lindas-uc/bafu_ubd/blob/master/config/ubd28.ttl#L225):
 
-```
+```turtle
   rr:predicateObjectMap [
     rr:predicate bafu:station ;
     rr:objectMap [

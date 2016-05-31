@@ -4,7 +4,7 @@ Within a [LINDAS use case with FOEN](https://github.com/lindas-uc/bafu_ubd) we c
 
 ## Introduction
 
-As of today most tabular data is made available on institution websites or in open data portals like CKAN. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data that gets pushed into the system is the data which is made available to the user.
+As of today most tabular data is made available on institution websites or in open data portals like CKAN. CKAN is a data management system aimed at data publishers wanting to make their data open and available. It provides tools to facilitate this publishing step and helps finding and using data. The data quality completely depends on the data provider. There is no additional work done on the data sets except adding some meta information. The data that gets pushed into the system is the data, which is made available to the user.
 
 Tabular data is usually made available as CSV or Excel/OpenOffice Spreadsheet. App developers need to download the raw data and process it using their own ETL (Extract, Transform, Load) processes. With every update of the raw data the ETL process has to be triggered for every single application where it is used. If the format of the raw data changed, the process has to be adjusted and cannot be automated. With every new data source, maintenance complexity of these open data sets and its apps increases.
 
@@ -12,9 +12,9 @@ In the case of FOEN this might not even be possible: Many datasets contain milli
 
 ### Linked Data
 
-Within this prototype we tried another approach: Convert the tabular data to a standarized format, load it to an appropriate database and provide a web based tool, which facilitates consumption of this dataset and resembles a standard spreadsheet. Also make sure the data or a subset of it can be exported to CSV again.
+Within this prototype we tried another approach: Convert the tabular data to a standardized format, load it to an appropriate database and provide a web based tool, which facilitates consumption of this dataset and resembles a standard spreadsheet. Also make sure the data or a subset of it can be exported to CSV again.
 
-We setteled on the following standards:
+We settled on the following standards:
 
 * RDF as data model
 * Data Cube Vocabulary for describing the tabular data in a re-useable way
@@ -31,13 +31,28 @@ One of the basic concepts of RDF is that a information is identified as a URI, a
 
 Within the Linked Data community [Data Cube Vocabulary](http://www.w3.org/TR/vocab-data-cube/) is the most used and most useful vocabulary for converting multi dimensional tabular data to Linked Data and RDF. We just provide a basic introduction to this vocabulary, it is recommended to read the full specification and its example first. Within this prototype we do not provide a fully validated implementation of the Data Cube vocabulary but focus on the most important aspects of it.
 
-#### Metadata
+#### Data Set Metadata
 
 In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional metadata according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not. This is the base for the DCAT & [VoID](https://www.w3.org/TR/void/) file, which is currently maintained outside the FOEN Github repository with other [LINDAS metadata](https://github.com/zazuko/lindas-datasets/blob/gh-pages/input/void.ttl).
 
-This VoID file maps the metatata described in the OpenOffice file to its according RDF DCAT and VoID identifiers and should be pretty much self-explanatory. If you are unsure you might want to consult the W3C [Data on the Web Best Practices](https://www.w3.org/TR/dwbp/) document, which was also used by the author of this document.
+This VoID file maps the metatata described in the OpenOffice file to its according RDF DCAT and VoID identifiers and should be pretty much self-explanatory. If you are unsure you might want to consult the W3C [Data on the Web Best Practices](https://www.w3.org/TR/dwbp/) document.
 
+#### Data Cube Metadata
 
+As a next step one needs to define the Data Cube itself. We do that by maintaining one file per dataset which defines all the necessary metadata in one place. See [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/input/meta/ubd28/qb.ttl) for a complete example.
+
+Requirements:
+
+* We need one `qb:DataSet` definition which is the base for everything else. This definition can contain comments & labels in multiple languages so users can easily find what they need. We should at least provide a `rdfs:label`, `rdfs:comment` and point to the `qb:structure` defined next. 
+* In the `qb:DataStructureDefinition` we define all so-called components (all subclasses of `qb:ComponentProperty`) as `qb:DimensionProperty`, `qb:AttributeProperty` or `qb:MeasureProperty`. These components represent the rows in our tabular data. Usually one should provide one of these for each row in the CSV. The distinction between the three is a bit tricky, please refer to the Data Cube Vocabulary for more details and consult our example mapping. Note that the URIs for these components are used later when we map the rows to RDF.
+* We also assign an order to the components by using the `qb:order` predicate. Lower value means higher order. This is useful for deciding which column should be shown first in a visualization.
+* For each component we need to add additional metadata so they become more accessible for users. The more labels in multiple languages we add, the easier it becomes for the user to understand what this column is about. This label is also used in the generic table viewer as a name for the columns.
+
+#### Describing a measurement
+
+Once the metadata is set one can start to convert each row to RDF data. Data Cube Vocabulary is defining a class called `qb:Observation` for this. Every single row in the CSV file (except the header) will be transformed to a `qb:Observation`. Obviously the most important information assigned to such an observation is what we measured. This means every observation contains a measured value, ideally an assigned unit and then all the other constraints which are necessary to uniquely describe this particular measurement. Doing this properly is essential, we re-use the `qb:ComponentProperty` defined above for this.
+
+Once this is done we are set and have a basic RDF Data Cube available.
 
 ## Conversion process
 
@@ -175,13 +190,3 @@ rr:template "http://environment.data.admin.ch/ubd/28/measurement/{station_id}/{p
 
 In the `rr:objectMap` we define again a predicate called `rr:template` which ends up as an URI in the data. We used the same principle to create a subject URI before. Use the column name as a variable again, in our case `station_id`.
 
-### Data Cube Metadata
-
-Once all mappings are done we just need to define some metadata using the Data Cube vocabulary. We do that by maintaining one file per dataset which defines all the necessary metadata in one place. See [UBD28](https://github.com/lindas-uc/bafu_ubd/blob/master/input/meta/ubd28/qb.ttl) for a complete example.
-
-Requirements:
-
-* We need one `qb:DataSet` definition which points to everything else. This definition can contain comments & labels in multiple languages so users can easily find what they need.
-* In the `qb:DataStructureDefinition` we define all so-called components as `qb:dimension`, `qb:attribute` or `qb:measure`. Please refer to the Data Cube documentation for details. Note that the URIs for these components are the one we defined above in the mapping.
-* We also assign an order to the components by using the `qb:order` predicate. Lower value means higher order.
-* For each component we need to add additional metadata so they become more accessible for users. The more labels in multiple languages we add, the easier it becomes for the user to understand what this column is about.

@@ -27,7 +27,7 @@ We settled on the following standards:
 
 We will not cover the basics of RDF within this document, please refer to the [RDF Primer](https://www.w3.org/TR/rdf11-primer/) for a basic introduction to RDF and/or the [Linked Data on Speed](http://presentations.zazuko.com/LD-Speed/#2) presentation. We also provide a list of [recommended books](http://presentations.zazuko.com/LD-Speed/#46) about the topic and implementations of the RDF model in [various programming languages](http://presentations.zazuko.com/LD-Speed/#47).
 
-![RDF Data Model](img/AThing2.svg)
+![RDF Data Model](img/AThing2.png)
 
 One of the basic concepts of RDF is that a information is identified as a URI, as shown in the RDF Primer. By making this URI available as a "link" on the Web, people can follow the relationships in the data and find related information easily. RDF is thus also often called Linked Data and extends the classical Web of document in a powerful way.
 
@@ -41,7 +41,7 @@ Within the Linked Data community [Data Cube Vocabulary](http://www.w3.org/TR/voc
 
 In the current prototype all datasets are available as OpenOffice documents and CSV exports. The OpenOffice document provides the same data as the CSV plus additional meta data according to the [DCAT-AP Switzerland](https://dcat-ap-switzerland.readthedocs.org/en/latest/) profile. It also gives additional information about the structure of the data, key values and if an entry is mandatory or not. This is the base for the DCAT & [VoID](https://www.w3.org/TR/void/) file, which is currently maintained outside the FOEN Github repository with other [LINDAS meta data](https://github.com/zazuko/lindas-datasets/blob/gh-pages/input/void.ttl).
 
-![UBD28 Metadata](img/meta data.png)
+![UBD28 Metadata](img/metadata.png)
 
 This VoID file maps the metatata described in the OpenOffice file to its according RDF DCAT and VoID identifiers and should be pretty much self-explanatory. If you are unsure you might want to consult the W3C [Data on the Web Best Practices](https://www.w3.org/TR/dwbp/) document.
 

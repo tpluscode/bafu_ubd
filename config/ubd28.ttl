@@ -190,17 +190,10 @@
   ];
 
   rr:predicateObjectMap [
-    rr:predicate bafu:year;
+    rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "year" ;
       rr:datatype xsd:gYear  
-    ]
-  ];
-
-  rr:predicateObjectMap [
-    rr:predicate rdfs:label;
-    rr:objectMap [
-      rml:reference "year" 
     ]
   ].
 

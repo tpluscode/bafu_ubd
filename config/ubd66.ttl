@@ -298,21 +298,34 @@
 
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/66/year/{year}";
-    rr:class bafu:Year, qb:Observation;
-  ];
-
-  rr:predicateObjectMap [
-    rr:predicate bafu:year;
-    rr:objectMap [
-      rml:reference "year" ;
-      rr:datatype xsd:gYear  
-    ]
+    rr:class bafu:Year;
   ];
 
   rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
-      rml:reference "year" 
+      rml:reference "year" ;
+      rr:datatype xsd:gYear  
+    ]
+  ] .
+
+
+ <#Survey>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/survey/{surveyNr}";
+    rr:class bafu:Survey ;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "surveyNr" ;
+      rr:datatype xsd:int
     ]
   ] .
 

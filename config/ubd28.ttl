@@ -186,7 +186,7 @@
 
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/28/year/{year}";
-    rr:class bafu:Year, qb:Observation;
+    rr:class bafu:Year
   ];
 
   rr:predicateObjectMap [

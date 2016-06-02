@@ -317,7 +317,7 @@
 
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/66/samplingdate/{samplingdate}";
-    rr:class bafu:Year;
+    rr:class bafu:SamplingDate;
   ];
 
   rr:predicateObjectMap [

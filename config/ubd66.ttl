@@ -309,6 +309,24 @@
     ]
   ] .
 
+ <#Samplingdate>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/samplingdate/{samplingdate}";
+    rr:class bafu:Year;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "samplingdate" ;
+      rr:datatype xsd:date  
+    ]
+  ] .
 
  <#Survey>
   rml:logicalSource [
@@ -371,8 +389,7 @@
   rr:predicateObjectMap [
     rr:predicate bafu:date ;
     rr:objectMap [
-      rml:reference "samplingdate" ;
-      rr:datatype xsd:dateTime 
+      rr:template "http://environment.data.admin.ch/ubd/66/samplingdate/{samplingdate}"
     ]
   ] ;
 

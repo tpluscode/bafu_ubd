@@ -14,9 +14,10 @@ SELECT ?site ?plot ?municipality ?lv03_x_min ?lv03_y_min ?lv03_x_max ?lv03_y_max
       bafu:refPeriod ?refPeriodUri ;
       bafu:parameter ?parameterUri ;
       bafu:unit ?unitUri ;
-      bafu:measurement ?measurement ;
       bafu:siteplot ?siteplotUri ;
       bafu:landuse ?landuseUri .
+
+    OPTIONAL {?measurementUri bafu:measurement ?measurement . }
 
     # resolve labels
     

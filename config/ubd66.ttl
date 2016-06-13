@@ -101,66 +101,70 @@
 
   rr:subjectMap [
     rr:template "http://environment.data.admin.ch/ubd/66/siteplot/{site_plotID}";
-    rr:class bafu:SitePlot ;
+    rr:class bafu:SitePlot, skos:Concept;
   ];
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:site;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "site";
+      rr:template "http://environment.data.admin.ch/ubd/66/site/{site}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:plot;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "plot";
+      rr:template "http://environment.data.admin.ch/ubd/66/plot/{plot}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:municipality;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "community";
+      rr:template "http://environment.data.admin.ch/ubd/66/community/{community}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:lv03_x_min;
+
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "Xmin";
-      rr:datatype xsd:float ;
+      rr:template "http://environment.data.admin.ch/ubd/66/xmin/{Xmin}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:lv03_y_min;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "Ymin";
-      rr:datatype xsd:float ;
-    ]
-  ] ;
-    rr:predicateObjectMap [
-    rr:predicate bafu:lv03_x_max;
-    rr:objectMap [
-      rml:reference "Xmax";
-      rr:datatype xsd:float ;
+      rr:template "http://environment.data.admin.ch/ubd/66/ymin/{Ymin}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:lv03_y_max;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "Ymax";
-      rr:datatype xsd:float ;
+      rr:template "http://environment.data.admin.ch/ubd/66/xmax/{Xmax}"
     ]
   ] ;
 
-    rr:predicateObjectMap [
-    rr:predicate bafu:altitude;
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
     rr:objectMap [
-      rml:reference "altitude" ;
-      rr:datatype xsd:double ;
+      rr:template "http://environment.data.admin.ch/ubd/66/ymax/{Ymax}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/ymax/{Ymax}"
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate skos:narrower ;
+    rr:objectMap [
+      rr:template "http://environment.data.admin.ch/ubd/66/altitude/{altitude}"
     ]
   ] .
 

@@ -105,6 +105,13 @@
   ];
 
   rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "site_plotID";
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
     rr:predicate skos:narrower ;
     rr:objectMap [
       rr:template "http://environment.data.admin.ch/ubd/66/site/{site}"

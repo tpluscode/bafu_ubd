@@ -37,7 +37,7 @@ bafu:dsd_ubd66 a qb:DataStructureDefinition;
 
 ## Dimensions and measures
 
-bafu:siteplot a qb:DimensionProperty ;
+bafu:siteplot a qb:DimensionProperty, bafu:ExtraProperty;
     rdfs:label "Standort-Nummer/Beprobte Parzelle pro Standort"@de ;
     rdfs:comment "Kürzel zusammengesetzt aus Standortnummer & Parzelle" .
 

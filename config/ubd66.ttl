@@ -351,6 +351,150 @@
     ]
   ] .
 
+ <#Site>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/site/{site}";
+    rr:class bafu:Site, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "site";
+    ]
+  ].
+
+ <#Plot>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/plot/{plot}";
+    rr:class bafu:Plot, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "plot";
+    ]
+  ].
+
+ <#Community>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/community/{community}";
+    rr:class bafu:Community, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "community";
+    ]
+  ].
+
+ <#Xmin>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/xmin/{Xmin}";
+    rr:class bafu:Xmin, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "Xmin";
+    ]
+  ].
+
+ <#Ymin>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/ymin/{Ymin}";
+    rr:class bafu:Ymin, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "Ymin";
+    ]
+  ].
+
+ <#Xmax>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admax.ch/ubd/66/xmax/{Xmax}";
+    rr:class bafu:Xmax, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "Xmax";
+    ]
+  ].
+
+ <#Ymax>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admax.ch/ubd/66/ymax/{Ymax}";
+    rr:class bafu:Ymax, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "Ymax";
+    ]
+  ].
+
+ <#Altitude>
+  rml:logicalSource [
+    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/66/altitude/{altitude}";
+    rr:class bafu:Altitude, skos:Concept;
+  ];
+
+  rr:predicateObjectMap [
+    rr:predicate skos:prefLabel;
+    rr:objectMap [
+      rml:reference "altitude";
+    ]
+  ].
+
  <#Base>
   rml:logicalSource [
     rml:source "input/ubd/66/UBD0066_Basetable.csv";

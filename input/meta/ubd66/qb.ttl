@@ -67,5 +67,34 @@ bafu:survey a qb:DimensionProperty ;
 bafu:comment a qb:DimensionProperty ;
     rdfs:label "Kommentar"@de .
 
+## Concepts for non-dimensions (Hack, let's see if this stays like this)
+
+bafu:Site a skos:Concept ;
+    qb:order 1 .
+
+bafu:Plot a skos:Concept ;
+    qb:order 2 .
+
+bafu:Community a skos:Concept ;
+    qb:order 3 .
+
+bafu:Xmin a skos:Concept ;
+    qb:order 4 .
+
+bafu:Ymin a skos:Concept ;
+    qb:order 5 .
+
+bafu:Xmax a skos:Concept ;
+    qb:order 6 .
+
+bafu:Ymax a skos:Concept ;
+    qb:order 7 .
+
+bafu:Altitude a skos:Concept ;
+    qb:order 8 .
+
+
+
+
 
 

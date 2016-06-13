@@ -360,7 +360,7 @@
 
  <#Site>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -378,7 +378,7 @@
 
  <#Plot>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -396,7 +396,7 @@
 
  <#Community>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -414,7 +414,7 @@
 
  <#Xmin>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -432,7 +432,7 @@
 
  <#Ymin>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -450,7 +450,7 @@
 
  <#Xmax>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -468,7 +468,7 @@
 
  <#Ymax>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -486,7 +486,7 @@
 
  <#Altitude>
   rml:logicalSource [
-    rml:source "input/ubd/66/UBD0066_Basetable.csv";
+    rml:source "input/ubd/66/UBD0066_site_plotID.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 

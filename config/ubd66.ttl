@@ -455,7 +455,7 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://environment.data.admax.ch/ubd/66/xmax/{Xmax}";
+    rr:template "http://environment.data.admin.ch/ubd/66/xmax/{Xmax}";
     rr:class bafu:Xmax, skos:Concept;
   ];
 
@@ -473,7 +473,7 @@
   ]; 
 
   rr:subjectMap [
-    rr:template "http://environment.data.admax.ch/ubd/66/ymax/{Ymax}";
+    rr:template "http://environment.data.admin.ch/ubd/66/ymax/{Ymax}";
     rr:class bafu:Ymax, skos:Concept;
   ];
 

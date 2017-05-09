@@ -28,7 +28,9 @@ bafu:dsd_ubd28 a qb:DataStructureDefinition;
         [ qb:attribute  bafu:aggregation; qb:order 3 ],
         [ qb:dimension  bafu:refPeriod; qb:order 4 ],
         [ qb:measure    bafu:measurement; qb:order 5 ], 
-        [ qb:attribute  bafu:unit; qb:order 6 ].
+        [ qb:attribute  bafu:unit; qb:order 6 ],
+        [ qb:attribute  bafu:limitvalue; qb:order 7 ].
+
 
 ## Dimensions and measures
 
@@ -37,6 +39,9 @@ bafu:pollutant a qb:DimensionProperty ;
 
 bafu:unit a qb:AttributeProperty ;
     rdfs:label "Einheit"@de .
+
+bafu:limitvalue a qb:AttributeProperty ;
+    rdfs:label "Limite"@de .
 
 bafu:station a qb:DimensionProperty ;
     rdfs:label "Stationscode"@de ;

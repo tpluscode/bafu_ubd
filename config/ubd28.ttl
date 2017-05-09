@@ -19,7 +19,7 @@
 
 <#Pollutant>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_pollutant_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_pollutant_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -44,10 +44,50 @@
     ]
   ] ;
 
-     rr:predicateObjectMap [
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "pollutant_name_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "pollutant_name_en";
+      rr:language "en" ;
+    ]
+ ] ;
+
+     rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "pollutant_description_de";
+      rr:language "de" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "pollutant_description_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "pollutant_description_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:comment;
+    rr:objectMap [
+      rml:reference "pollutant_description_en";
       rr:language "en" ;
     ]
  ] .
@@ -76,6 +116,14 @@
     rr:objectMap [
       rml:reference "unit_name_fr";
       rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "unit_name_en";
+      rr:language "en" ;
     ]
   ] .
 
@@ -107,7 +155,7 @@
     rr:predicateObjectMap [
     rr:predicate gont:canton;
     rr:objectMap [
-      rr:template "http://classifications.data.admin.ch/canton/{station_kanton}"
+      rr:template "http://classifications.data.admin.ch/canton/{station_canton}"
     ]
   ] ;
 
@@ -138,16 +186,101 @@
     rr:predicateObjectMap [
     rr:predicate bafu:stationType;
     rr:objectMap [
-      rml:reference "station_type_de" ;
-      rr:language "de" ;
+      rr:template "http://environment.data.admin.ch/ubd/28/stationtype/{station_type_id}"
     ]
   ] ;  
 
     rr:predicateObjectMap [
     rr:predicate bafu:areaType;
     rr:objectMap [
-      rml:reference "station_type_of_area_de" ;
+      rr:template "http://environment.data.admin.ch/ubd/28/areatype/{area_type_id}"
+
+    ]
+  ] .
+
+<#StationType>
+  rml:logicalSource [
+    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/28/stationtype/{station_type_id}";
+    rr:class bafu:StationType ;
+  ];
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "station_type_de";
       rr:language "de" ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "station_type_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "station_type_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "station_type_en";
+      rr:language "en" ;
+    ]
+  ] .
+
+<#AreaType>
+  rml:logicalSource [
+    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:referenceFormulation ql:CSV
+  ]; 
+
+  rr:subjectMap [
+    rr:template "http://environment.data.admin.ch/ubd/28/areatype/{area_type_id}";
+    rr:class bafu:AreaType ;
+  ];
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "area_type_de";
+      rr:language "de" ;
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "area_type_fr";
+      rr:language "fr" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "area_type_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "area_type_en";
+      rr:language "en" ;
     ]
   ] .
 
@@ -167,6 +300,22 @@
     rr:objectMap [
       rml:reference "aggregation_name_de";
       rr:language "de" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "aggregation_name_it";
+      rr:language "it" ;
+    ]
+  ] ;
+
+    rr:predicateObjectMap [
+    rr:predicate rdfs:label;
+    rr:objectMap [
+      rml:reference "aggregation_name_en";
+      rr:language "en" ;
     ]
   ] ;
 
@@ -254,6 +403,14 @@
     rr:predicate bafu:measurement;
     rr:objectMap [
       rml:reference "value" ;
+      rr:datatype xsd:float  
+    ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate bafu:limitvalue;
+    rr:objectMap [
+      rml:reference "limitvalue" ;
       rr:datatype xsd:float  
     ]
   ] ;

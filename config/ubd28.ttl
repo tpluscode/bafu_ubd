@@ -19,7 +19,7 @@
 
 <#Pollutant>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_pollutant_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_pollutant_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -94,7 +94,7 @@
 
 <#Unit>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_unit_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_unit_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -129,7 +129,7 @@
 
 <#Station>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -200,7 +200,7 @@
 
 <#StationType>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -243,7 +243,7 @@
 
 <#AreaType>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -252,7 +252,7 @@
     rr:class bafu:AreaType ;
   ];
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "area_type_de";
@@ -286,7 +286,7 @@
 
 <#Aggregation>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_aggregation_id.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_aggregation_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -295,7 +295,7 @@
     rr:class bafu:Aggregation ;
   ];
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "aggregation_name_de";
@@ -303,7 +303,7 @@
     ]
   ] ;
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "aggregation_name_it";
@@ -311,7 +311,7 @@
     ]
   ] ;
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "aggregation_name_en";
@@ -319,7 +319,7 @@
     ]
   ] ;
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "aggregation_name_fr";
@@ -329,7 +329,7 @@
 
 <#Year>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_basetable.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_basetable.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -348,7 +348,7 @@
 
   <#Base>
   rml:logicalSource [
-    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_basetable.csv";
+    rml:source "input/ubd/28/CH_yearly_air_immission_basetable.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 

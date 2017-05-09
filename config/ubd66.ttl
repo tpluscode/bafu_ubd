@@ -335,7 +335,7 @@
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "samplingdate" ;
-      rr:datatype xsd:date  
+      rr:datatype xsd:dateTime  
     ]
   ] .
 

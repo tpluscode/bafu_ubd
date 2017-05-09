@@ -6,7 +6,7 @@ PREFIX bafu: <http://environment.data.admin.ch/ubd/66/qb/>
 
 
 SELECT ?site ?plot ?municipality ?lv03_x_min ?lv03_y_min ?lv03_x_max ?lv03_y_max ?altitude ?landuse ?parameter ?date ?refPeriod ?survey ?measurement ?unit WHERE {
-  GRAPH <http://lindas-data.ch/resource/bafu_ubd> {
+  GRAPH <https://linked.opendata.swiss/graph/FOEN/UBD66> {
     ?measurementUri a qb:Observation ;
       qb:dataSet <http://environment.data.admin.ch/ubd/66/qb/ubd66> ;
       bafu:survey ?surveyUri ;

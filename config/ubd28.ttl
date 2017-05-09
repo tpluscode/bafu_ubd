@@ -94,7 +94,7 @@
 
 <#Unit>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_unit_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_unit_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -129,7 +129,7 @@
 
 <#Station>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -200,7 +200,7 @@
 
 <#StationType>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -243,7 +243,7 @@
 
 <#AreaType>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_station_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_station_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -286,7 +286,7 @@
 
 <#Aggregation>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_aggregation_id.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_aggregation_id.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -329,7 +329,7 @@
 
 <#Year>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_basetable.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_basetable.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 
@@ -348,7 +348,7 @@
 
   <#Base>
   rml:logicalSource [
-    rml:source "target/input-utf8/input/ubd/28/CH_yearly_air_immission_basetable.csv";
+    rml:source "target/input/input/ubd/28/CH_yearly_air_immission_basetable.csv";
     rml:referenceFormulation ql:CSV
   ]; 
 

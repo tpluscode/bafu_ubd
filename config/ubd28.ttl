@@ -268,7 +268,7 @@
     ]
   ] ;
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "area_type_it";
@@ -276,7 +276,7 @@
     ]
   ] ;
 
-    rr:predicateObjectMap [
+  rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [
       rml:reference "area_type_en";

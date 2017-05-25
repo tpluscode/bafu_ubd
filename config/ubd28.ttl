@@ -138,6 +138,13 @@
     rr:class bafu:Station ;
   ];
 
+  rr:predicateObjectMap [
+    rr:predicate skos:notation;
+    rr:objectMap [
+      rml:reference "station_id"
+    ]
+  ] ;
+
     rr:predicateObjectMap [
     rr:predicate rdfs:label;
     rr:objectMap [

@@ -112,66 +112,58 @@
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:site ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/site/{site}"
+      rml:reference "site";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:plot ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/plot/{plot}"
+      rml:reference "plot";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:municipality ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/community/{community}"
-    ]
-  ] ;
-
-
-  rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
-    rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/xmin/{Xmin}"
+      rml:reference "community";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:lv03_x_min ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/ymin/{Ymin}"
+      rml:reference "Xmin";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:lv03_y_min ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/xmax/{Xmax}"
+      rml:reference "Ymin";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:lv03_x_max ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/ymax/{Ymax}"
+      rml:reference "Xmax";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:lv03_y_max ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/ymax/{Ymax}"
+      rml:reference "Ymax";
     ]
   ] ;
 
   rr:predicateObjectMap [
-    rr:predicate skos:narrower ;
+    rr:predicate bafu:altitude ;
     rr:objectMap [
-      rr:template "http://environment.data.admin.ch/ubd/66/altitude/{altitude}"
+    rml:reference "altitude";
     ]
   ] .
 

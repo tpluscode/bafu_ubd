@@ -1,0 +1,68 @@
+@base <urn:pipeline:bafu-ubd> .
+@prefix : <https://pipeline.described.at/> .
+@prefix code: <https://code.described.at/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<> a :Pipeline ;
+  :steps
+    [
+      :stepList ( <#openCsv> <#parse> <#serialize> <#save> )
+    ] ;
+  :variables [
+    :variable
+      [ a :Variable; :name "inputDir"; :value "input/ubd" ] ,
+      [ a :Variable; :name "metaDir"; :value "input/meta" ] ,
+      [ a :Variable; :name "targetDir"; :value "output" ]
+  ].
+
+<#openCsv> a :Step ;
+  code:implementedBy [
+      code:link <node:fs#createReadStream> ;
+      a code:EcmaScript
+    ] ;
+  code:arguments ( "${inputDir}/${csv}"^^code:EcmaScriptTemplateLiteral ) .
+
+<#parse> a :Step;
+  code:implementedBy
+    [
+      code:link <node:barnard59-formats#csvw.parse>;
+      a code:EcmaScript
+    ];
+  code:arguments ( <#parseMetadata> ).
+
+<#parseMetadata> a :Pipeline, :ReadableObjectMode;
+  :steps
+    [
+      :stepList ( <#readMetadata> <#parseMetadataStep> )
+    ].
+
+<#readMetadata> a :Step;
+  code:implementedBy
+    [
+      code:link <node:fs#createReadStream>;
+      a code:EcmaScript
+    ];
+  code:arguments ("${metaDir}/${csv}.json"^^code:EcmaScriptTemplateLiteral).
+
+<#parseMetadataStep> a :Step;
+  code:implementedBy
+    [
+      code:link <node:barnard59-formats#jsonld.parse>;
+      a code:EcmaScript
+    ].
+
+<#serialize> a :Step;
+  code:implementedBy
+    [
+      code:link <node:barnard59-formats#ntriples.serialize> ;
+      a code:EcmaScript
+    ].
+
+<#save> a :Step;
+  code:implementedBy
+    [
+      code:link <node:fs#createWriteStream>;
+      a code:EcmaScript
+    ];
+  code:arguments ("${targetDir}/${csv}.nt"^^code:EcmaScriptTemplateLiteral).
+

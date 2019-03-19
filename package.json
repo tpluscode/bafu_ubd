@@ -1,0 +1,13 @@
+{
+  "name": "bafu_ubd",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:zazuko/bafu_ubd.git",
+  "author": "Zazuko GmbH",
+  "license": "MIT",
+  "dependencies": {
+    "barnard59-core": "git+https://github.com/zazuko/barnard59-core.git",
+    "barnard59-formats": "git+https://github.com/zazuko/barnard59-formats.git",
+    "barnard59-main": "git+https://github.com/zazuko/barnard59-main.git"
+  }
+}

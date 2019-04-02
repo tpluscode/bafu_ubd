@@ -1,0 +1,36 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "dialect": {
+    "delimiter": ","
+  },
+  "tableSchema": {
+    "aboutUrl": "http://environment.data.admin.ch/ubd/28/aggregation/{aggregation_id}",
+    "columns": [
+      {
+        "virtual":true,
+        "propertyUrl":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "valueUrl": "http://environment.data.admin.ch/ubd/28/qb/Aggregation"
+      },
+      {
+        "titles": "aggregation_name_de",
+        "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#label",
+        "lang": "de"
+      },
+      {
+        "titles": "aggregation_name_it",
+        "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#label",
+        "lang": "it"
+      },
+      {
+        "titles": "aggregation_name_en",
+        "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#label",
+        "lang": "en"
+      },
+      {
+        "titles": "aggregation_name_fr",
+        "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#label",
+        "lang": "fr"
+      }
+    ]
+  }
+}

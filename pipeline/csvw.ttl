@@ -11,7 +11,7 @@
   :variables [
     :variable
       [ a :Variable; :name "inputDir"; :value "input/ubd" ] ,
-      [ a :Variable; :name "metaDir"; :value "input/meta" ] ,
+      [ a :Variable; :name "metaDir"; :value "input/meta/ubd" ] ,
       [ a :Variable; :name "targetDir"; :value "output" ]
   ].
 
@@ -42,7 +42,7 @@
       code:link <node:fs#createReadStream>;
       a code:EcmaScript
     ];
-  code:arguments ("${metaDir}/${csv}.json"^^code:EcmaScriptTemplateLiteral).
+  code:arguments ("${metaDir}${csv}.json"^^code:EcmaScriptTemplateLiteral).
 
 <#parseMetadataStep> a :Step;
   code:implementedBy
